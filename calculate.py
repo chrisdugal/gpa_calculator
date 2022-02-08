@@ -93,9 +93,9 @@ for i in range(0, len(lines)):
         while lines[i+1] != "In GPA Earned":
             i += 1
 
-            # ignore CR, NCR, COVID-19 note, etc.
+            # ignore CR, NCR, COVID-19 note, work-term reports, etc.
             line = lines[i].split(" ")
-            if not line[-1].isnumeric():
+            if not line[-1].isnumeric() or line[0] == "WKRPT":
                 continue
 
             grade = int(line[-1])
